@@ -6,25 +6,28 @@ angular
     'HomeConfigModule',
  
 'CoursesConfigModule', 
-'TeachersConfigModule', ]).config(function ($stateProvider, $urlRouterProvider) {
+'TeachersConfigModule', 
+'AboutConfigModule', ]).config(function ($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise("/");
 });
 
 angular
-  .module('HomeControllerModule', [])
-  .controller("HomeController", ['$scope', function ($scope) {
+  .module('AboutControllerModule', [])
+  .controller("AboutController",  ['$scope', function($scope) {
+
+    $scope.msg = "About";
 
   }]);
 angular
-  .module('HomeConfigModule',
-  ['HomeControllerModule'])
+  .module('AboutConfigModule',
+  ['AboutControllerModule'])
   .config(function ($stateProvider, $urlRouterProvider) {
-  $stateProvider
-  .state('Home', {
-    url : '/',
-    templateUrl: 'app/components/Home/Home.html',
-    controller: 'HomeController'
-  })
+	 $stateProvider
+	  .state('About', {
+	    url : '/About',
+	    templateUrl: 'app/components/About/About.html',
+	    controller: 'AboutController'
+	  })
 });
 
 angular
@@ -45,6 +48,23 @@ angular
 	    templateUrl: 'app/components/Courses/Courses.html',
 	    controller: 'CoursesController'
 	  })
+});
+
+angular
+  .module('HomeControllerModule', [])
+  .controller("HomeController", ['$scope', function ($scope) {
+
+  }]);
+angular
+  .module('HomeConfigModule',
+  ['HomeControllerModule'])
+  .config(function ($stateProvider, $urlRouterProvider) {
+  $stateProvider
+  .state('Home', {
+    url : '/',
+    templateUrl: 'app/components/Home/Home.html',
+    controller: 'HomeController'
+  })
 });
 
 angular

@@ -3,8 +3,8 @@ var clean = require('gulp-clean');
 var concat = require('gulp-concat');
   
 var bases = {
- app: '/',
- dist: 'assets/js/',
+ app: 'GtuAutoCadWebsite/',
+ dist: 'GtuAutoCadWebsite/assets/js/',
 };
  
  

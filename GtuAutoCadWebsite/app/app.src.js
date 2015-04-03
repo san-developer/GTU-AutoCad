@@ -6,6 +6,7 @@ angular
     'HomeConfigModule',
  
 'CoursesConfigModule', 
-'TeachersConfigModule', ]).config(function ($stateProvider, $urlRouterProvider) {
+'TeachersConfigModule', 
+'AboutConfigModule', ]).config(function ($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise("/");
 });
