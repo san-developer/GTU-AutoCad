@@ -1,32 +1,44 @@
 // MENU MOBILE ===============================================================================
 // Collpsable menu mobile and tablets
 
-	$("#megamenu-button-mobile").click(function(){
-		$(".megamenu").slideToggle(400);
-		$(this).toggleClass("active");
-	});
+$("#megamenu-button-mobile").click(function () {
+    $(".megamenu").slideToggle(400);
+    $(this).toggleClass("active");
+});
 
 // MENU DROP DOWN ====================================== //
- $(document).ready(function() {
-    $(".megamenu .drop-down").click(function() {
-      if($(this).next("div").is(":visible")){
-        $(this).next("div").slideToggle("normal");
-      } else {
-        $(".megamenu .drop-down-container").fadeOut("fast");
-        $(this).next("div").slideToggle("slow");
-      }
+var currentMenuItem;
+$(document).ready(function () {
+    $(".megamenu .drop-down").click(function (event) {
+        currentMenuItem = this;
+        if ($(this).next("div").is(":visible")) {
+            $(this).next("div").slideToggle("normal");
+            event.stopPropagation();
+        } else {
+            $(".megamenu .drop-down-container").fadeOut("fast");
+            $(this).next("div").slideToggle("slow");
+
+            event.stopPropagation();
+        }
     });
-  });
-  
+});
+
+$('body').click(function (event) {
+    if ($(currentMenuItem).next("div").is(":visible")) {
+        $(currentMenuItem).next("div").slideToggle("normal");
+        event.stopPropagation();
+    }
+});
+
 
 // DROP DOWN MENU TABS ====================================== //
-$('body').on('click', 'ul.tabs > li > a', function(e) {
+$('body').on('click', 'ul.tabs > li > a', function (e) {
 
     //Get Location of tab's content
     var contentLocation = $(this).attr('href');
 
     //Let go if not a hashed one
-    if(contentLocation.charAt(0)=="#") {
+    if (contentLocation.charAt(0) == "#") {
 
         e.preventDefault();
 
