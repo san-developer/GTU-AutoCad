@@ -8,16 +8,17 @@ angular
     'AboutConfigModule',
     'AllCoursesConfigModule',
 'PlanConfigModule',
-'AutoCADConfigModule', 
-'AutoCADMEPConfigModule', 
-'RevitArchitectureConfigModule', 
-'3dsMaxConfigModule', 
-'InventorConfigModule', 
-'AutodeskSketchbookPROConfigModule', 
-'MayaConfigModule', 
+'AutoCADConfigModule',
+'AutoCADMEPConfigModule',
+'RevitArchitectureConfigModule',
+'3dsMaxConfigModule',
+'InventorConfigModule',
+'AutodeskSketchbookPROConfigModule',
+'MayaConfigModule',
 'AutoCADCivil3DConfigModule', ]).config(function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise("/");
 }).run(function ($rootScope) {
+
     $rootScope.Courses =
         [
             {
@@ -69,4 +70,8 @@ angular
                 ProgramCount: 1
             }
         ];
+
+    $rootScope.groupedCourses = _.groupBy($rootScope.Courses, function (item, index) {
+        return Math.floor(index / 3);
+    });
 });

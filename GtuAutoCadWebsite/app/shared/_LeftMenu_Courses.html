@@ -1,0 +1,19 @@
+﻿<aside class="span4 ">
+    <div class="col-left">
+        <h3>კურსები</h3>
+        <ul class="submenu-col">
+            <li>
+                <a ui-sref="AllCourses" id="{{('AllCourses' | isState) ? 'active' : 'false'}}">ყველა კურსი</a></li>
+            <li ng-repeat="c in Courses">
+                <a id="{{(c.Module | isState) ? 'active' : 'false'}}" ui-sref="{{c.Module}}">
+                    {{c.Name}} ({{c.ProgramCount}})
+                </a>
+            </li>
+        </ul>
+        <hr>
+        <h5>Upcoming Courses</h5>
+        <p>Suspendisse quis risus turpis, ut pharetra arcu. Donec adipiscing, quam non faucibus luctus, mi arcu blandit diam, at faucibus mi ante vel augue.</p>
+        <p><a ui-sref="AllCourses" class=" button_red_small">ყველა კურსი</a></p>
+    </div>
+    <p><img src="assets/img/banner.jpg" alt="Banner" class="img-rounded"></p>
+</aside>

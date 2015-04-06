@@ -8,16 +8,17 @@ angular
     'AboutConfigModule',
     'AllCoursesConfigModule',
 'PlanConfigModule',
-'AutoCADConfigModule', 
-'AutoCADMEPConfigModule', 
-'RevitArchitectureConfigModule', 
-'3dsMaxConfigModule', 
-'InventorConfigModule', 
-'AutodeskSketchbookPROConfigModule', 
-'MayaConfigModule', 
+'AutoCADConfigModule',
+'AutoCADMEPConfigModule',
+'RevitArchitectureConfigModule',
+'3dsMaxConfigModule',
+'InventorConfigModule',
+'AutodeskSketchbookPROConfigModule',
+'MayaConfigModule',
 'AutoCADCivil3DConfigModule', ]).config(function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise("/");
 }).run(function ($rootScope) {
+
     $rootScope.Courses =
         [
             {
@@ -69,63 +70,10 @@ angular
                 ProgramCount: 1
             }
         ];
-});
 
-angular
-  .module('AboutControllerModule', [])
-  .controller("AboutController",  ['$scope', function($scope) {
-
-    $scope.msg = "About";
-
-  }]);
-angular
-  .module('AboutConfigModule',
-  ['AboutControllerModule'])
-  .config(function ($stateProvider, $urlRouterProvider) {
-	 $stateProvider
-	  .state('About', {
-	    url : '/About',
-	    templateUrl: 'app/components/About/About.html',
-	    controller: 'AboutController'
-	  })
-});
-
-angular
-  .module('AllCoursesControllerModule', [])
-  .controller("AllCoursesController",  ['$scope', function($scope) {
-
-    $scope.msg = "AllCourses";
-
-  }]);
-angular
-  .module('AllCoursesConfigModule',
-  ['AllCoursesControllerModule'])
-  .config(function ($stateProvider, $urlRouterProvider) {
-	 $stateProvider
-	  .state('AllCourses', {
-	    url : '/AllCourses',
-	    templateUrl: 'app/components/AllCourses/AllCourses.html',
-	    controller: 'AllCoursesController'
-	  })
-});
-
-angular
-  .module('AutoCADControllerModule', [])
-  .controller("AutoCADController",  ['$scope', function($scope) {
-
-    $scope.msg = "AutoCAD";
-
-  }]);
-angular
-  .module('AutoCADConfigModule',
-  ['AutoCADControllerModule'])
-  .config(function ($stateProvider, $urlRouterProvider) {
-	 $stateProvider
-	  .state('AutoCAD', {
-	    url : '/AutoCAD',
-	    templateUrl: 'app/components/AutoCAD/AutoCAD.html',
-	    controller: 'AutoCADController'
-	  })
+    $rootScope.groupedCourses = _.groupBy($rootScope.Courses, function (item, index) {
+        return Math.floor(index / 3);
+    });
 });
 
 angular
@@ -148,10 +96,60 @@ angular
 });
 
 angular
-  .module('AutoCADCivil3DControllerModule', [])
-  .controller("AutoCADCivil3DController",  ['$scope', function($scope) {
+  .module('AboutConfigModule',
+  ['AboutControllerModule'])
+  .config(function ($stateProvider, $urlRouterProvider) {
+	 $stateProvider
+	  .state('About', {
+	    url : '/About',
+	    templateUrl: 'app/components/About/About.html',
+	    controller: 'AboutController'
+	  })
+});
 
-    $scope.msg = "AutoCADCivil3D";
+angular
+  .module('AboutControllerModule', [])
+  .controller("AboutController",  ['$scope', function($scope) {
+
+    $scope.msg = "About";
+
+  }]);
+angular
+  .module('AllCoursesConfigModule',
+  ['AllCoursesControllerModule'])
+  .config(function ($stateProvider, $urlRouterProvider) {
+	 $stateProvider
+	  .state('AllCourses', {
+	    url : '/AllCourses',
+	    templateUrl: 'app/components/AllCourses/AllCourses.html',
+	    controller: 'AllCoursesController'
+	  })
+});
+
+angular
+  .module('AllCoursesControllerModule', [])
+  .controller("AllCoursesController",  ['$scope', function($scope) {
+
+    $scope.msg = "AllCourses";
+
+  }]);
+angular
+  .module('AutoCADConfigModule',
+  ['AutoCADControllerModule'])
+  .config(function ($stateProvider, $urlRouterProvider) {
+	 $stateProvider
+	  .state('AutoCAD', {
+	    url : '/AutoCAD',
+	    templateUrl: 'app/components/AutoCAD/AutoCAD.html',
+	    controller: 'AutoCADController'
+	  })
+});
+
+angular
+  .module('AutoCADControllerModule', [])
+  .controller("AutoCADController",  ['$scope', function($scope) {
+
+    $scope.msg = "AutoCAD";
 
   }]);
 angular
@@ -167,10 +165,10 @@ angular
 });
 
 angular
-  .module('AutoCADMEPControllerModule', [])
-  .controller("AutoCADMEPController",  ['$scope', function($scope) {
+  .module('AutoCADCivil3DControllerModule', [])
+  .controller("AutoCADCivil3DController",  ['$scope', function($scope) {
 
-    $scope.msg = "AutoCADMEP";
+    $scope.msg = "AutoCADCivil3D";
 
   }]);
 angular
@@ -186,10 +184,10 @@ angular
 });
 
 angular
-  .module('AutodeskSketchbookPROControllerModule', [])
-  .controller("AutodeskSketchbookPROController",  ['$scope', function($scope) {
+  .module('AutoCADMEPControllerModule', [])
+  .controller("AutoCADMEPController",  ['$scope', function($scope) {
 
-    $scope.msg = "AutodeskSketchbookPRO";
+    $scope.msg = "AutoCADMEP";
 
   }]);
 angular
@@ -205,8 +203,10 @@ angular
 });
 
 angular
-  .module('HomeControllerModule', [])
-  .controller("HomeController", ['$scope', function ($scope) {
+  .module('AutodeskSketchbookPROControllerModule', [])
+  .controller("AutodeskSketchbookPROController",  ['$scope', function($scope) {
+
+    $scope.msg = "AutodeskSketchbookPRO";
 
   }]);
 angular
@@ -222,10 +222,8 @@ angular
 });
 
 angular
-  .module('InventorControllerModule', [])
-  .controller("InventorController",  ['$scope', function($scope) {
-
-    $scope.msg = "Inventor";
+  .module('HomeControllerModule', [])
+  .controller("HomeController", ['$scope', function ($scope) {
 
   }]);
 angular
@@ -241,10 +239,10 @@ angular
 });
 
 angular
-  .module('MayaControllerModule', [])
-  .controller("MayaController",  ['$scope', function($scope) {
+  .module('InventorControllerModule', [])
+  .controller("InventorController",  ['$scope', function($scope) {
 
-    $scope.msg = "Maya";
+    $scope.msg = "Inventor";
 
   }]);
 angular
@@ -260,10 +258,10 @@ angular
 });
 
 angular
-  .module('PlanControllerModule', [])
-  .controller("PlanController",  ['$scope', function($scope) {
+  .module('MayaControllerModule', [])
+  .controller("MayaController",  ['$scope', function($scope) {
 
-    $scope.msg = "Plan";
+    $scope.msg = "Maya";
 
   }]);
 angular
@@ -279,10 +277,10 @@ angular
 });
 
 angular
-  .module('RevitArchitectureControllerModule', [])
-  .controller("RevitArchitectureController",  ['$scope', function($scope) {
+  .module('PlanControllerModule', [])
+  .controller("PlanController",  ['$scope', function($scope) {
 
-    $scope.msg = "RevitArchitecture";
+    $scope.msg = "Plan";
 
   }]);
 angular
@@ -298,10 +296,10 @@ angular
 });
 
 angular
-  .module('TeachersControllerModule', [])
-  .controller("TeachersController",  ['$scope', function($scope) {
+  .module('RevitArchitectureControllerModule', [])
+  .controller("RevitArchitectureController",  ['$scope', function($scope) {
 
-    $scope.msg = "Teachers";
+    $scope.msg = "RevitArchitecture";
 
   }]);
 angular
@@ -315,3 +313,11 @@ angular
 	    controller: 'TeachersController'
 	  })
 });
+
+angular
+  .module('TeachersControllerModule', [])
+  .controller("TeachersController",  ['$scope', function($scope) {
+
+    $scope.msg = "Teachers";
+
+  }]);
