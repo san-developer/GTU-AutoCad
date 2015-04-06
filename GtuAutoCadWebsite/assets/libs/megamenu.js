@@ -24,9 +24,15 @@ $(document).ready(function () {
 });
 
 $('body').click(function (event) {
-    if ($(currentMenuItem).next("div").is(":visible")) {
-        $(currentMenuItem).next("div").slideToggle("normal");
-        event.stopPropagation();
+    var menuDiv = $('.drop-down-container')
+
+    if (event.target.attributes["ui-sref"] ||(!menuDiv.is(event.target) // if the target of the click isn't the container...
+        && menuDiv.has(event.target).length === 0)) // ... nor a descendant of the container
+    {
+        if ($(currentMenuItem).next("div").is(":visible")) {
+            $(currentMenuItem).next("div").slideToggle("normal");
+            event.stopPropagation();
+        }
     }
 });
 
