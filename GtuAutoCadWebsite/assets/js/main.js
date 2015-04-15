@@ -15,60 +15,82 @@ angular
 'InventorConfigModule',
 'AutodeskSketchbookPROConfigModule',
 'MayaConfigModule',
-'AutoCADCivil3DConfigModule', 
+'AutoCADCivil3DConfigModule',
 'ApplyConfigModule', ]).config(function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise("/");
 }).run(function ($rootScope) {
-        
+
     $rootScope.Courses =
         [
             {
+                Id: 1,
                 Name: 'AutoCAD',
                 Module: "AutoCAD",
                 Description: 'AutoCAD 2015 - არის პროექტების შემუშავების უახლესი მძლავრი გარემო როგორც სიბრტყეზე ისე სივრცეში. გააჩნია საპროექტო დოკუმენტაციის შექმნის და ვიზუალიზაციის საშუალებები. აწარმოებს ინფორმაციის იოლ გაცვლას სხვა CAD/CAM/CAE სისტემებთან.',
-                ProgramCount: 3
+                ProgramCount: 3,
+                Programs: [{ Id: 1, Name: "Autodesk AutoCAD. დაპროექტების საფუძვლები. 2D ხაზვა", Description : "აღწერა"},
+                           { Id: 2, Name: "Autodesk AutoCAD. 3D -მოდელირება და ვიზუალიზაცია", Description : "აღწერა"},
+                           { Id: 3, Name: "ხაზვა. საბაზო კურსი CAD-სისტემების მომხმარებლებისათვის", Description : "აღწერა" }]
             },
             {
+                Id: 2,
                 Name: 'AutoCAD MEP',
                 Module: "AutoCADMEP",
                 Description: 'AutoCAD MEP აღწერა.',
                 ProgramCount: 2,
+                Programs: [{ Id: 4, Name: "Autodesk AutoCAD MEP.  შენობების საინჟინრო სისტემების დაპროექტება", Description : "აღწერა"},
+                           { Id: 5, Name: "Autodesk Revit MEP. შენობების საინჟინრო სისტემების დაპროექტება", Description : "აღწერა" }]
             },
             {
+                Id: 3,
                 Name: 'Revit Architecture',
                 Module: "RevitArchitecture",
                 Description: 'Revit Architecture აღწერა',
-                ProgramCount: 1
+                ProgramCount: 1,
+                Programs: [{ Id: 6, Name: "Autodesk Revit Architecture. სამშენებლო ობიექტების დაპროექტება", Description : "აღწერა" }]
             },
             {
+                Id: 4,
                 Name: '3ds Max',
                 Module: "3dsMax",
                 Description: '3ds Max აღწერა.',
-                ProgramCount: 2
+                ProgramCount: 2,
+                Programs: [{ Id: 7, Name: "Autodesk 3ds Max.  3D-მოდელირების საფუძვლები", Description : "აღწერა"},
+                           { Id: 8, Name: "Autodesk 3ds Max.  მასალების შექმნა და განათება ", Description : "აღწერა" }]
+
             },
             {
+                Id: 5,
                 Name: 'Inventor',
                 Module: "Inventor",
                 Description: 'Inventor აღწერა.',
-                ProgramCount: 1
+                ProgramCount: 1,
+                Programs: [{ Id: 9, Name: "Autodesk Inventor. სამანქანათმშენებლო 3D - დაპროექტება", Description : "აღწერა" }]
             },
             {
+                Id: 6,
                 Name: 'Autodesk Sketchbook PRO',
                 Module: "AutodeskSketchbookPRO",
                 Description: 'Autodesk Sketchbook PRO აღწერა.',
-                ProgramCount: 1
+                ProgramCount: 1,
+                Programs: [{ Id: 10, Name: "Autodesk Sketchbook PRO. სკეტჩინგი IPad - ზე", Description : "აღწერა" }]
             },
             {
+                Id: 7,
                 Name: 'Maya',
                 Module: "Maya",
                 Description: 'Maya აღწერა.',
-                ProgramCount: 2
+                ProgramCount: 2,
+                Programs: [{ Id: 11, Name: "Autodesk Maya.   მოდელირება და ანიმაცია", Description : "აღწერა"},
+                           { Id: 12, Name: "Autodesk Maya. ობიექტქბის ვიზუალიზაცია Mental ray-ში", Description : "აღწერა" }]
             },
             {
+                Id: 8,
                 Name: 'AutoCAD Civil 3D',
                 Module: "AutoCADCivil3D",
                 Description: 'AutoCAD Civil 3D აღწერა.',
-                ProgramCount: 1
+                ProgramCount: 1,
+                Programs: [{ Id: 13, Name: "Autodesk AutoCAD Civil 3D. ინფრასტრუქტურის ობიექტების დაპროექტება", Description : "აღწერა" }]
             }
         ];
 
@@ -79,9 +101,9 @@ angular
 
 angular
   .module('3dsMaxControllerModule', [])
-  .controller("3dsMaxController",  ['$scope', function($scope) {
+  .controller("3dsMaxController", ['$scope', '$rootScope', function ($scope, $rootScope) {
 
-    $scope.msg = "3dsMax";
+      $scope.Model = $rootScope.Courses[3];
 
   }]);
 angular
@@ -167,9 +189,9 @@ angular
 
 angular
   .module('AutoCADControllerModule', [])
-  .controller("AutoCADController",  ['$scope', function($scope) {
+  .controller("AutoCADController", ['$scope', '$rootScope', function ($scope, $rootScope) {
 
-    $scope.msg = "AutoCAD";
+      $scope.Model = $rootScope.Courses[0];
 
   }]);
 angular
@@ -186,9 +208,9 @@ angular
 
 angular
   .module('AutoCADCivil3DControllerModule', [])
-  .controller("AutoCADCivil3DController",  ['$scope', function($scope) {
+  .controller("AutoCADCivil3DController", ['$scope', '$rootScope', function ($scope, $rootScope) {
 
-    $scope.msg = "AutoCADCivil3D";
+      $scope.Model = $rootScope.Courses[7];
 
   }]);
 angular
@@ -205,9 +227,9 @@ angular
 
 angular
   .module('AutoCADMEPControllerModule', [])
-  .controller("AutoCADMEPController",  ['$scope', function($scope) {
+  .controller("AutoCADMEPController", ['$scope', '$rootScope', function ($scope, $rootScope) {
 
-    $scope.msg = "AutoCADMEP";
+      $scope.Model = $rootScope.Courses[1];
 
   }]);
 angular
@@ -224,9 +246,9 @@ angular
 
 angular
   .module('AutodeskSketchbookPROControllerModule', [])
-  .controller("AutodeskSketchbookPROController",  ['$scope', function($scope) {
+  .controller("AutodeskSketchbookPROController", ['$scope', '$rootScope', function ($scope, $rootScope) {
 
-    $scope.msg = "AutodeskSketchbookPRO";
+      $scope.Model = $rootScope.Courses[5];
 
   }]);
 angular
@@ -260,9 +282,9 @@ angular
 
 angular
   .module('InventorControllerModule', [])
-  .controller("InventorController",  ['$scope', function($scope) {
+  .controller("InventorController", ['$scope', '$rootScope', function ($scope, $rootScope) {
 
-    $scope.msg = "Inventor";
+      $scope.Model = $rootScope.Courses[4];
 
   }]);
 angular
@@ -279,9 +301,9 @@ angular
 
 angular
   .module('MayaControllerModule', [])
-  .controller("MayaController",  ['$scope', function($scope) {
+  .controller("MayaController", ['$scope', '$rootScope', function ($scope, $rootScope) {
 
-    $scope.msg = "Maya";
+      $scope.Model = $rootScope.Courses[6];
 
   }]);
 angular
@@ -317,9 +339,9 @@ angular
 
 angular
   .module('RevitArchitectureControllerModule', [])
-  .controller("RevitArchitectureController",  ['$scope', function($scope) {
+  .controller("RevitArchitectureController", ['$scope', '$rootScope', function ($scope, $rootScope) {
 
-    $scope.msg = "RevitArchitecture";
+      $scope.Model = $rootScope.Courses[2];
 
   }]);
 angular

@@ -1,7 +1,7 @@
 angular
   .module('MayaControllerModule', [])
-  .controller("MayaController",  ['$scope', function($scope) {
+  .controller("MayaController", ['$scope', '$rootScope', function ($scope, $rootScope) {
 
-    $scope.msg = "Maya";
+      $scope.Model = $rootScope.Courses[6];
 
   }]);

@@ -1,7 +1,7 @@
 angular
   .module('InventorControllerModule', [])
-  .controller("InventorController",  ['$scope', function($scope) {
+  .controller("InventorController", ['$scope', '$rootScope', function ($scope, $rootScope) {
 
-    $scope.msg = "Inventor";
+      $scope.Model = $rootScope.Courses[4];
 
   }]);

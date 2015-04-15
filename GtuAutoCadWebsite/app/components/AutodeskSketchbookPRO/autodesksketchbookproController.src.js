@@ -1,7 +1,7 @@
 angular
   .module('AutodeskSketchbookPROControllerModule', [])
-  .controller("AutodeskSketchbookPROController",  ['$scope', function($scope) {
+  .controller("AutodeskSketchbookPROController", ['$scope', '$rootScope', function ($scope, $rootScope) {
 
-    $scope.msg = "AutodeskSketchbookPRO";
+      $scope.Model = $rootScope.Courses[5];
 
   }]);

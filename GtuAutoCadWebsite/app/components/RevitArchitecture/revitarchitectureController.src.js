@@ -1,7 +1,7 @@
 angular
   .module('RevitArchitectureControllerModule', [])
-  .controller("RevitArchitectureController",  ['$scope', function($scope) {
+  .controller("RevitArchitectureController", ['$scope', '$rootScope', function ($scope, $rootScope) {
 
-    $scope.msg = "RevitArchitecture";
+      $scope.Model = $rootScope.Courses[2];
 
   }]);

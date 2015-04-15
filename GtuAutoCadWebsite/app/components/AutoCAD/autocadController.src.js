@@ -1,7 +1,7 @@
 angular
   .module('AutoCADControllerModule', [])
-  .controller("AutoCADController",  ['$scope', function($scope) {
+  .controller("AutoCADController", ['$scope', '$rootScope', function ($scope, $rootScope) {
 
-    $scope.msg = "AutoCAD";
+      $scope.Model = $rootScope.Courses[0];
 
   }]);
