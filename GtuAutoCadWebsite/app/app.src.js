@@ -15,10 +15,11 @@ angular
 'InventorConfigModule',
 'AutodeskSketchbookPROConfigModule',
 'MayaConfigModule',
-'AutoCADCivil3DConfigModule', ]).config(function ($stateProvider, $urlRouterProvider) {
+'AutoCADCivil3DConfigModule', 
+'ApplyConfigModule', ]).config(function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise("/");
 }).run(function ($rootScope) {
-
+        
     $rootScope.Courses =
         [
             {

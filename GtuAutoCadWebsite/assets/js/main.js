@@ -15,10 +15,11 @@ angular
 'InventorConfigModule',
 'AutodeskSketchbookPROConfigModule',
 'MayaConfigModule',
-'AutoCADCivil3DConfigModule', ]).config(function ($stateProvider, $urlRouterProvider) {
+'AutoCADCivil3DConfigModule', 
+'ApplyConfigModule', ]).config(function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise("/");
 }).run(function ($rootScope) {
-
+        
     $rootScope.Courses =
         [
             {
@@ -131,6 +132,25 @@ angular
   .controller("AllCoursesController",  ['$scope', function($scope) {
 
     $scope.msg = "AllCourses";
+
+  }]);
+angular
+  .module('ApplyConfigModule',
+  ['ApplyControllerModule'])
+  .config(function ($stateProvider, $urlRouterProvider) {
+	 $stateProvider
+	  .state('Apply', {
+	    url : '/Apply',
+	    templateUrl: 'app/components/Apply/Apply.html',
+	    controller: 'ApplyController'
+	  })
+});
+
+angular
+  .module('ApplyControllerModule', [])
+  .controller("ApplyController",  ['$scope', function($scope) {
+
+    $scope.msg = "Apply";
 
   }]);
 angular
