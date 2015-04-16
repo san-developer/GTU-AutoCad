@@ -6,7 +6,7 @@
         <div class="span12">
             <ul class="breadcrumb">
                 <li><a ui-sref="Home">მთავარი</a> <span class="divider">/</span></li>
-                <li><a href="all-courses.html">All 3dsMax</a> <span class="divider">/</span></li>
+                <li><a ui-sref="AllCourses">All 3dsMax</a> <span class="divider">/</span></li>
                 <li class="active">3dsMax</li>
             </ul>
         </div>
@@ -16,7 +16,7 @@
             <div class="col-left">
                 <h3>კურსები</h3>
                 <ul class="submenu-col">
-                    <li><a href="all-courses.html">ყველა კურსი</a></li>
+                    <li><a ui-sref="AllCourses">ყველა კურსი</a></li>
                     <li ng-repeat="c in Courses">
                         <a id="{{(c.Module | isState) ? 'active' : 'false'}}" ui-sref="{{c.Module}}">
                             {{c.Name}} ({{c.ProgramCount}})
@@ -96,7 +96,7 @@
                 </div> <!-- /widget -->
 
 
-                <p class="text-center"><a href="contact.html" class="button_large">Apply now </a></p>
+                <p class="text-center"><a ui-sref="Apply" class="button_large">Apply now </a></p>
 
 
             </div><!-- end col right-->
