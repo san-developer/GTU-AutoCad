@@ -16,8 +16,10 @@ angular
 'AutodeskSketchbookPROConfigModule',
 'MayaConfigModule',
 'AutoCADCivil3DConfigModule',
-'ApplyConfigModule', ]).config(function ($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise("/");
+'ApplyConfigModule', 
+'2DDrowingConfigModule', 
+'2DModellingVisualisationConfigModule', ]).config(function ($stateProvider, $urlRouterProvider) {
+   // $urlRouterProvider.otherwise("/");
 }).run(function ($rootScope) {
 
     $rootScope.Courses =
@@ -28,9 +30,9 @@ angular
                 Module: "AutoCAD",
                 Description: 'AutoCAD 2015 - არის პროექტების შემუშავების უახლესი მძლავრი გარემო როგორც სიბრტყეზე ისე სივრცეში. გააჩნია საპროექტო დოკუმენტაციის შექმნის და ვიზუალიზაციის საშუალებები. აწარმოებს ინფორმაციის იოლ გაცვლას სხვა CAD/CAM/CAE სისტემებთან.',
                 ProgramCount: 3,
-                Programs: [{ Id: 1, Name: "Autodesk AutoCAD. დაპროექტების საფუძვლები. 2D ხაზვა", Description : "აღწერა"},
-                           { Id: 2, Name: "Autodesk AutoCAD. 3D -მოდელირება და ვიზუალიზაცია", Description : "აღწერა"},
-                           { Id: 3, Name: "ხაზვა. საბაზო კურსი CAD-სისტემების მომხმარებლებისათვის", Description : "აღწერა" }]
+                Programs: [{ Id: 1, Name: "Autodesk AutoCAD. დაპროექტების საფუძვლები. 2D ხაზვა", Description : "აღწერა", Module:"2DDrowing"},
+                           { Id: 2, Name: "Autodesk AutoCAD. 3D -მოდელირება და ვიზუალიზაცია", Description : "აღწერა", Module:"2DModellingVisualisation" },
+                           { Id: 3, Name: "ხაზვა. საბაზო კურსი CAD-სისტემების მომხმარებლებისათვის", Description : "აღწერა", Module:"CAD" }]
             },
             {
                 Id: 2,

@@ -16,8 +16,10 @@ angular
 'AutodeskSketchbookPROConfigModule',
 'MayaConfigModule',
 'AutoCADCivil3DConfigModule',
-'ApplyConfigModule', ]).config(function ($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise("/");
+'ApplyConfigModule', 
+'2DDrowingConfigModule', 
+'2DModellingVisualisationConfigModule', ]).config(function ($stateProvider, $urlRouterProvider) {
+   // $urlRouterProvider.otherwise("/");
 }).run(function ($rootScope) {
 
     $rootScope.Courses =
@@ -28,9 +30,9 @@ angular
                 Module: "AutoCAD",
                 Description: 'AutoCAD 2015 - არის პროექტების შემუშავების უახლესი მძლავრი გარემო როგორც სიბრტყეზე ისე სივრცეში. გააჩნია საპროექტო დოკუმენტაციის შექმნის და ვიზუალიზაციის საშუალებები. აწარმოებს ინფორმაციის იოლ გაცვლას სხვა CAD/CAM/CAE სისტემებთან.',
                 ProgramCount: 3,
-                Programs: [{ Id: 1, Name: "Autodesk AutoCAD. დაპროექტების საფუძვლები. 2D ხაზვა", Description : "აღწერა"},
-                           { Id: 2, Name: "Autodesk AutoCAD. 3D -მოდელირება და ვიზუალიზაცია", Description : "აღწერა"},
-                           { Id: 3, Name: "ხაზვა. საბაზო კურსი CAD-სისტემების მომხმარებლებისათვის", Description : "აღწერა" }]
+                Programs: [{ Id: 1, Name: "Autodesk AutoCAD. დაპროექტების საფუძვლები. 2D ხაზვა", Description : "აღწერა", Module:"2DDrowing"},
+                           { Id: 2, Name: "Autodesk AutoCAD. 3D -მოდელირება და ვიზუალიზაცია", Description : "აღწერა", Module:"2DModellingVisualisation" },
+                           { Id: 3, Name: "ხაზვა. საბაზო კურსი CAD-სისტემების მომხმარებლებისათვის", Description : "აღწერა", Module:"CAD" }]
             },
             {
                 Id: 2,
@@ -100,25 +102,6 @@ angular
 });
 
 angular
-  .module('3dsMaxControllerModule', [])
-  .controller("3dsMaxController", ['$scope', '$rootScope', function ($scope, $rootScope) {
-
-      $scope.Model = $rootScope.Courses[3];
-
-  }]);
-angular
-  .module('3dsMaxConfigModule',
-  ['3dsMaxControllerModule'])
-  .config(function ($stateProvider, $urlRouterProvider) {
-	 $stateProvider
-	  .state('3dsMax', {
-	    url : '/3dsMax',
-	    templateUrl: 'app/components/3dsMax/3dsMax.html',
-	    controller: '3dsMaxController'
-	  })
-});
-
-angular
   .module('AboutConfigModule',
   ['AboutControllerModule'])
   .config(function ($stateProvider, $urlRouterProvider) {
@@ -137,6 +120,25 @@ angular
     $scope.msg = "About";
 
   }]);
+angular
+  .module('3dsMaxControllerModule', [])
+  .controller("3dsMaxController", ['$scope', '$rootScope', function ($scope, $rootScope) {
+
+      $scope.Model = $rootScope.Courses[3];
+
+  }]);
+angular
+  .module('3dsMaxConfigModule',
+  ['3dsMaxControllerModule'])
+  .config(function ($stateProvider, $urlRouterProvider) {
+	 $stateProvider
+	  .state('3dsMax', {
+	    url : '/3dsMax',
+	    templateUrl: 'app/components/3dsMax/3dsMax.html',
+	    controller: '3dsMaxController'
+	  })
+});
+
 angular
   .module('AllCoursesConfigModule',
   ['AllCoursesControllerModule'])
@@ -157,25 +159,6 @@ angular
 
   }]);
 angular
-  .module('ApplyConfigModule',
-  ['ApplyControllerModule'])
-  .config(function ($stateProvider, $urlRouterProvider) {
-	 $stateProvider
-	  .state('Apply', {
-	    url : '/Apply',
-	    templateUrl: 'app/components/Apply/Apply.html',
-	    controller: 'ApplyController'
-	  })
-});
-
-angular
-  .module('ApplyControllerModule', [])
-  .controller("ApplyController",  ['$scope', function($scope) {
-
-    $scope.msg = "Apply";
-
-  }]);
-angular
   .module('AutoCADConfigModule',
   ['AutoCADControllerModule'])
   .config(function ($stateProvider, $urlRouterProvider) {
@@ -192,6 +175,25 @@ angular
   .controller("AutoCADController", ['$scope', '$rootScope', function ($scope, $rootScope) {
 
       $scope.Model = $rootScope.Courses[0];
+
+  }]);
+angular
+  .module('ApplyConfigModule',
+  ['ApplyControllerModule'])
+  .config(function ($stateProvider, $urlRouterProvider) {
+	 $stateProvider
+	  .state('Apply', {
+	    url : '/Apply',
+	    templateUrl: 'app/components/Apply/Apply.html',
+	    controller: 'ApplyController'
+	  })
+});
+
+angular
+  .module('ApplyControllerModule', [])
+  .controller("ApplyController",  ['$scope', function($scope) {
+
+    $scope.msg = "Apply";
 
   }]);
 angular
@@ -252,23 +254,6 @@ angular
 
   }]);
 angular
-  .module('HomeConfigModule',
-  ['HomeControllerModule'])
-  .config(function ($stateProvider, $urlRouterProvider) {
-  $stateProvider
-  .state('Home', {
-    url : '/',
-    templateUrl: 'app/components/Home/Home.html',
-    controller: 'HomeController'
-  })
-});
-
-angular
-  .module('HomeControllerModule', [])
-  .controller("HomeController", ['$scope', function ($scope) {
-
-  }]);
-angular
   .module('InventorConfigModule',
   ['InventorControllerModule'])
   .config(function ($stateProvider, $urlRouterProvider) {
@@ -285,6 +270,23 @@ angular
   .controller("InventorController", ['$scope', '$rootScope', function ($scope, $rootScope) {
 
       $scope.Model = $rootScope.Courses[4];
+
+  }]);
+angular
+  .module('HomeConfigModule',
+  ['HomeControllerModule'])
+  .config(function ($stateProvider, $urlRouterProvider) {
+  $stateProvider
+  .state('Home', {
+    url : '/',
+    templateUrl: 'app/components/Home/Home.html',
+    controller: 'HomeController'
+  })
+});
+
+angular
+  .module('HomeControllerModule', [])
+  .controller("HomeController", ['$scope', function ($scope) {
 
   }]);
 angular
@@ -307,25 +309,6 @@ angular
 
   }]);
 angular
-  .module('PlanConfigModule',
-  ['PlanControllerModule'])
-  .config(function ($stateProvider, $urlRouterProvider) {
-	 $stateProvider
-	  .state('Plan', {
-	    url : '/Plan',
-	    templateUrl: 'app/components/Plan/Plan.html',
-	    controller: 'PlanController'
-	  })
-});
-
-angular
-  .module('PlanControllerModule', [])
-  .controller("PlanController",  ['$scope', function($scope) {
-
-    $scope.msg = "Plan";
-
-  }]);
-angular
   .module('RevitArchitectureConfigModule',
   ['RevitArchitectureControllerModule'])
   .config(function ($stateProvider, $urlRouterProvider) {
@@ -342,6 +325,25 @@ angular
   .controller("RevitArchitectureController", ['$scope', '$rootScope', function ($scope, $rootScope) {
 
       $scope.Model = $rootScope.Courses[2];
+
+  }]);
+angular
+  .module('PlanConfigModule',
+  ['PlanControllerModule'])
+  .config(function ($stateProvider, $urlRouterProvider) {
+	 $stateProvider
+	  .state('Plan', {
+	    url : '/Plan',
+	    templateUrl: 'app/components/Plan/Plan.html',
+	    controller: 'PlanController'
+	  })
+});
+
+angular
+  .module('PlanControllerModule', [])
+  .controller("PlanController",  ['$scope', function($scope) {
+
+    $scope.msg = "Plan";
 
   }]);
 angular
@@ -363,3 +365,40 @@ angular
     $scope.msg = "Teachers";
 
   }]);
+angular
+  .module('2DDrowingControllerModule', [])
+  .controller("2DDrowingController", ['$scope', '$rootScope', function ($scope, $rootScope) {
+
+      $scope.Model = $rootScope.Courses[0].Programs;
+
+  }]);
+angular
+  .module('2DDrowingConfigModule',
+  ['2DDrowingControllerModule'])
+  .config(function ($stateProvider, $urlRouterProvider) {
+	 $stateProvider
+	  .state('2DDrowing', {
+	      url: '/AutoCAD/2DDrowing',
+	    templateUrl: 'app/components/AutoCAD/2DDrowing/2DDrowing.html',
+	    controller: '2DDrowingController'
+	  })
+});
+
+angular
+  .module('2DModellingVisualisationControllerModule', [])
+  .controller("2DModellingVisualisationController",  ['$scope', function($scope) {
+
+    $scope.msg = "2DModellingVisualisation";
+
+  }]);
+angular
+  .module('2DModellingVisualisationConfigModule',
+  ['2DModellingVisualisationControllerModule'])
+  .config(function ($stateProvider, $urlRouterProvider) {
+	 $stateProvider
+	  .state('2DModellingVisualisation', {
+	      url: '/AutoCAD/2DModellingVisualisation',
+	    templateUrl: 'app/components/AutoCAD/2DModellingVisualisation/2DModellingVisualisation.html',
+	    controller: '2DModellingVisualisationController'
+	  })
+});
