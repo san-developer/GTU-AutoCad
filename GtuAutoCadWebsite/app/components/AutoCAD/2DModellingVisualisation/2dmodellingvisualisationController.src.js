@@ -1,7 +1,7 @@
 angular
   .module('2DModellingVisualisationControllerModule', [])
-  .controller("2DModellingVisualisationController",  ['$scope', function($scope) {
+  .controller("2DModellingVisualisationController", ['$scope', '$rootScope', function ($scope, $rootScope) {
 
-    $scope.msg = "2DModellingVisualisation";
+      $scope.Model = $rootScope.Courses[0].Programs;
 
   }]);

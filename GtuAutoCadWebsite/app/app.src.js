@@ -18,7 +18,10 @@ angular
 'AutoCADCivil3DConfigModule',
 'ApplyConfigModule', 
 '2DDrowingConfigModule', 
-'2DModellingVisualisationConfigModule', ]).config(function ($stateProvider, $urlRouterProvider) {
+'2DModellingVisualisationConfigModule', 
+'CADConfigModule', 
+'ProjectBuildingConfigModule', 
+'3DProjectingConfigModule', ]).config(function ($stateProvider, $urlRouterProvider) {
    // $urlRouterProvider.otherwise("/");
 }).run(function ($rootScope) {
 
@@ -40,8 +43,8 @@ angular
                 Module: "AutoCADMEP",
                 Description: 'AutoCAD MEP აღწერა.',
                 ProgramCount: 2,
-                Programs: [{ Id: 4, Name: "Autodesk AutoCAD MEP.  შენობების საინჟინრო სისტემების დაპროექტება", Description : "აღწერა"},
-                           { Id: 5, Name: "Autodesk Revit MEP. შენობების საინჟინრო სისტემების დაპროექტება", Description : "აღწერა" }]
+                Programs: [{ Id: 4, Name: "Autodesk AutoCAD MEP.  შენობების საინჟინრო სისტემების დაპროექტება", Description: "აღწერა", Module: "" },
+                           { Id: 5, Name: "Autodesk Revit MEP. შენობების საინჟინრო სისტემების დაპროექტება", Description: "აღწერა", Module: "" }]
             },
             {
                 Id: 3,
@@ -49,7 +52,7 @@ angular
                 Module: "RevitArchitecture",
                 Description: 'Revit Architecture აღწერა',
                 ProgramCount: 1,
-                Programs: [{ Id: 6, Name: "Autodesk Revit Architecture. სამშენებლო ობიექტების დაპროექტება", Description : "აღწერა" }]
+                Programs: [{ Id: 6, Name: "Autodesk Revit Architecture. სამშენებლო ობიექტების დაპროექტება", Description: "აღწერა", Module: "ProjectBuilding" }]
             },
             {
                 Id: 4,
@@ -67,7 +70,7 @@ angular
                 Module: "Inventor",
                 Description: 'Inventor აღწერა.',
                 ProgramCount: 1,
-                Programs: [{ Id: 9, Name: "Autodesk Inventor. სამანქანათმშენებლო 3D - დაპროექტება", Description : "აღწერა" }]
+                Programs: [{ Id: 9, Name: "Autodesk Inventor. სამანქანათმშენებლო 3D - დაპროექტება", Description: "აღწერა", Module: "3DProjecting" }]
             },
             {
                 Id: 6,

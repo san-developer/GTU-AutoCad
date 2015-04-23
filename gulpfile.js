@@ -10,20 +10,26 @@ var bases = {
 
 
 //Delete the dist directory
-gulp.task('clean', function () {
-    return gulp.src(bases.dist)
+gulp.task('cleanLib', function () {
+    return gulp.src(bases.dist + "lib.js", { read: false })
+    .pipe(clean());
+});
+
+
+gulp.task('cleanNG', function () {
+    return gulp.src(bases.dist + "src.js", { read: false })
     .pipe(clean());
 });
 
 // Process scripts and concatenate them into one output file
-gulp.task('ngscripts', ['clean'], function () {
+gulp.task('ngscripts', ['cleanNG'], function () {
     gulp.src('**/*src.js')
     .pipe(concat('main.js'))
     .pipe(gulp.dest(bases.dist));
 });
 
 // Process scripts and concatenate them into one output file
-gulp.task('libscripts', ['clean'], function () {
+gulp.task('libscripts', ['cleanLib'], function () {
     gulp.src(
        ['node_modules/angular/angular.js',
         'node_modules/angular-ui-router/release/angular-ui-router.js',
@@ -34,9 +40,9 @@ gulp.task('libscripts', ['clean'], function () {
 });
 
 gulp.task('watch', function () {
-    return gulp.watch('**/*src.js', ['default']);
+    return gulp.watch('**/*src.js', ['ngscripts']);
 });
 
 
 // Define the default task as a sequence of the above tasks
-gulp.task('default', ['clean', 'ngscripts', 'libscripts', 'watch']);
+gulp.task('default', ['cleanLib', 'cleanNG', 'ngscripts', 'libscripts', 'watch']);
