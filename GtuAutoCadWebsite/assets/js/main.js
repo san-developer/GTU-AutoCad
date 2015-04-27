@@ -16,13 +16,13 @@ angular
 'AutodeskSketchbookPROConfigModule',
 'MayaConfigModule',
 'AutoCADCivil3DConfigModule',
-'ApplyConfigModule', 
-'2DDrowingConfigModule', 
-'2DModellingVisualisationConfigModule', 
-'CADConfigModule', 
-'ProjectBuildingConfigModule', 
+'ApplyConfigModule',
+'2DDrowingConfigModule',
+'2DModellingVisualisationConfigModule',
+'CADConfigModule',
+'ProjectBuildingConfigModule',
 '3DProjectingConfigModule', ]).config(function ($stateProvider, $urlRouterProvider) {
-   // $urlRouterProvider.otherwise("/");
+    $urlRouterProvider.otherwise("/");
 }).run(function ($rootScope) {
 
     $rootScope.Courses =
@@ -33,9 +33,9 @@ angular
                 Module: "AutoCAD",
                 Description: 'AutoCAD 2015 - არის პროექტების შემუშავების უახლესი მძლავრი გარემო როგორც სიბრტყეზე ისე სივრცეში. გააჩნია საპროექტო დოკუმენტაციის შექმნის და ვიზუალიზაციის საშუალებები. აწარმოებს ინფორმაციის იოლ გაცვლას სხვა CAD/CAM/CAE სისტემებთან.',
                 ProgramCount: 3,
-                Programs: [{ Id: 1, Name: "Autodesk AutoCAD. დაპროექტების საფუძვლები. 2D ხაზვა", Description : "აღწერა", Module:"2DDrowing"},
-                           { Id: 2, Name: "Autodesk AutoCAD. 3D -მოდელირება და ვიზუალიზაცია", Description : "აღწერა", Module:"2DModellingVisualisation" },
-                           { Id: 3, Name: "ხაზვა. საბაზო კურსი CAD-სისტემების მომხმარებლებისათვის", Description : "აღწერა", Module:"CAD" }]
+                Programs: [{ Id: 1, Name: "Autodesk AutoCAD. დაპროექტების საფუძვლები. 2D ხაზვა", Description: "აღწერა", Module: "2DDrowing" },
+                           { Id: 2, Name: "Autodesk AutoCAD. 3D -მოდელირება და ვიზუალიზაცია", Description: "აღწერა", Module: "2DModellingVisualisation" },
+                           { Id: 3, Name: "ხაზვა. საბაზო კურსი CAD-სისტემების მომხმარებლებისათვის", Description: "აღწერა", Module: "CAD" }]
             },
             {
                 Id: 2,
@@ -60,8 +60,8 @@ angular
                 Module: "3dsMax",
                 Description: '3ds Max აღწერა.',
                 ProgramCount: 2,
-                Programs: [{ Id: 7, Name: "Autodesk 3ds Max.  3D-მოდელირების საფუძვლები", Description : "აღწერა"},
-                           { Id: 8, Name: "Autodesk 3ds Max.  მასალების შექმნა და განათება ", Description : "აღწერა" }]
+                Programs: [{ Id: 7, Name: "Autodesk 3ds Max.  3D-მოდელირების საფუძვლები", Description: "აღწერა" },
+                           { Id: 8, Name: "Autodesk 3ds Max.  მასალების შექმნა და განათება ", Description: "აღწერა" }]
 
             },
             {
@@ -78,7 +78,7 @@ angular
                 Module: "AutodeskSketchbookPRO",
                 Description: 'Autodesk Sketchbook PRO აღწერა.',
                 ProgramCount: 1,
-                Programs: [{ Id: 10, Name: "Autodesk Sketchbook PRO. სკეტჩინგი IPad - ზე", Description : "აღწერა" }]
+                Programs: [{ Id: 10, Name: "Autodesk Sketchbook PRO. სკეტჩინგი IPad - ზე", Description: "აღწერა" }]
             },
             {
                 Id: 7,
@@ -86,8 +86,8 @@ angular
                 Module: "Maya",
                 Description: 'Maya აღწერა.',
                 ProgramCount: 2,
-                Programs: [{ Id: 11, Name: "Autodesk Maya.   მოდელირება და ანიმაცია", Description : "აღწერა"},
-                           { Id: 12, Name: "Autodesk Maya. ობიექტქბის ვიზუალიზაცია Mental ray-ში", Description : "აღწერა" }]
+                Programs: [{ Id: 11, Name: "Autodesk Maya.   მოდელირება და ანიმაცია", Description: "აღწერა" },
+                           { Id: 12, Name: "Autodesk Maya. ობიექტქბის ვიზუალიზაცია Mental ray-ში", Description: "აღწერა" }]
             },
             {
                 Id: 8,
@@ -95,7 +95,7 @@ angular
                 Module: "AutoCADCivil3D",
                 Description: 'AutoCAD Civil 3D აღწერა.',
                 ProgramCount: 1,
-                Programs: [{ Id: 13, Name: "Autodesk AutoCAD Civil 3D. ინფრასტრუქტურის ობიექტების დაპროექტება", Description : "აღწერა" }]
+                Programs: [{ Id: 13, Name: "Autodesk AutoCAD Civil 3D. ინფრასტრუქტურის ობიექტების დაპროექტება", Description: "აღწერა" }]
             }
         ];
 
@@ -162,25 +162,6 @@ angular
 
   }]);
 angular
-  .module('AutoCADConfigModule',
-  ['AutoCADControllerModule'])
-  .config(function ($stateProvider, $urlRouterProvider) {
-	 $stateProvider
-	  .state('AutoCAD', {
-	    url : '/AutoCAD',
-	    templateUrl: 'app/components/AutoCAD/AutoCAD.html',
-	    controller: 'AutoCADController'
-	  })
-});
-
-angular
-  .module('AutoCADControllerModule', [])
-  .controller("AutoCADController", ['$scope', '$rootScope', function ($scope, $rootScope) {
-
-      $scope.Model = $rootScope.Courses[0];
-
-  }]);
-angular
   .module('ApplyConfigModule',
   ['ApplyControllerModule'])
   .config(function ($stateProvider, $urlRouterProvider) {
@@ -197,6 +178,25 @@ angular
   .controller("ApplyController",  ['$scope', function($scope) {
 
     $scope.msg = "Apply";
+
+  }]);
+angular
+  .module('AutoCADConfigModule',
+  ['AutoCADControllerModule'])
+  .config(function ($stateProvider, $urlRouterProvider) {
+	 $stateProvider
+	  .state('AutoCAD', {
+	    url : '/AutoCAD',
+	    templateUrl: 'app/components/AutoCAD/AutoCAD.html',
+	    controller: 'AutoCADController'
+	  })
+});
+
+angular
+  .module('AutoCADControllerModule', [])
+  .controller("AutoCADController", ['$scope', '$rootScope', function ($scope, $rootScope) {
+
+      $scope.Model = $rootScope.Courses[0];
 
   }]);
 angular
@@ -219,25 +219,6 @@ angular
 
   }]);
 angular
-  .module('AutodeskSketchbookPROConfigModule',
-  ['AutodeskSketchbookPROControllerModule'])
-  .config(function ($stateProvider, $urlRouterProvider) {
-	 $stateProvider
-	  .state('AutodeskSketchbookPRO', {
-	    url : '/AutodeskSketchbookPRO',
-	    templateUrl: 'app/components/AutodeskSketchbookPRO/AutodeskSketchbookPRO.html',
-	    controller: 'AutodeskSketchbookPROController'
-	  })
-});
-
-angular
-  .module('AutodeskSketchbookPROControllerModule', [])
-  .controller("AutodeskSketchbookPROController", ['$scope', '$rootScope', function ($scope, $rootScope) {
-
-      $scope.Model = $rootScope.Courses[5];
-
-  }]);
-angular
   .module('AutoCADMEPConfigModule',
   ['AutoCADMEPControllerModule'])
   .config(function ($stateProvider, $urlRouterProvider) {
@@ -254,6 +235,25 @@ angular
   .controller("AutoCADMEPController", ['$scope', '$rootScope', function ($scope, $rootScope) {
 
       $scope.Model = $rootScope.Courses[1];
+
+  }]);
+angular
+  .module('AutodeskSketchbookPROConfigModule',
+  ['AutodeskSketchbookPROControllerModule'])
+  .config(function ($stateProvider, $urlRouterProvider) {
+	 $stateProvider
+	  .state('AutodeskSketchbookPRO', {
+	    url : '/AutodeskSketchbookPRO',
+	    templateUrl: 'app/components/AutodeskSketchbookPRO/AutodeskSketchbookPRO.html',
+	    controller: 'AutodeskSketchbookPROController'
+	  })
+});
+
+angular
+  .module('AutodeskSketchbookPROControllerModule', [])
+  .controller("AutodeskSketchbookPROController", ['$scope', '$rootScope', function ($scope, $rootScope) {
+
+      $scope.Model = $rootScope.Courses[5];
 
   }]);
 angular
@@ -369,25 +369,6 @@ angular
 
   }]);
 angular
-  .module('2DDrowingControllerModule', [])
-  .controller("2DDrowingController", ['$scope', '$rootScope', function ($scope, $rootScope) {
-
-      $scope.Model = $rootScope.Courses[0].Programs;
-
-  }]);
-angular
-  .module('2DDrowingConfigModule',
-  ['2DDrowingControllerModule'])
-  .config(function ($stateProvider, $urlRouterProvider) {
-	 $stateProvider
-	  .state('2DDrowing', {
-	      url: '/AutoCAD/2DDrowing',
-	    templateUrl: 'app/components/AutoCAD/2DDrowing/2DDrowing.html',
-	    controller: '2DDrowingController'
-	  })
-});
-
-angular
   .module('2DModellingVisualisationControllerModule', [])
   .controller("2DModellingVisualisationController", ['$scope', '$rootScope', function ($scope, $rootScope) {
 
@@ -425,6 +406,25 @@ angular
       $scope.Model = $rootScope.Courses[0].Programs;
 
   }]);
+angular
+  .module('2DDrowingControllerModule', [])
+  .controller("2DDrowingController", ['$scope', '$rootScope', function ($scope, $rootScope) {
+
+      $scope.Model = $rootScope.Courses[0].Programs;
+
+  }]);
+angular
+  .module('2DDrowingConfigModule',
+  ['2DDrowingControllerModule'])
+  .config(function ($stateProvider, $urlRouterProvider) {
+	 $stateProvider
+	  .state('2DDrowing', {
+	      url: '/AutoCAD/2DDrowing',
+	    templateUrl: 'app/components/AutoCAD/2DDrowing/2DDrowing.html',
+	    controller: '2DDrowingController'
+	  })
+});
+
 angular
   .module('3DProjectingControllerModule', [])
   .controller("3DProjectingController", ['$scope', '$rootScope', function ($scope, $rootScope) {
