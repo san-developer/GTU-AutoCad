@@ -3,6 +3,7 @@
 angular
   .module('app', [
     'ui.router',
+    'firebase',
     'HomeConfigModule',
     'TeachersConfigModule',
     'AboutConfigModule',
@@ -175,9 +176,14 @@ angular
 
 angular
   .module('ApplyControllerModule', [])
-  .controller("ApplyController",  ['$scope', function($scope) {
+  .controller("ApplyController", ['$scope', '$firebaseArray', function ($scope, $firebaseArray) {
 
-    $scope.msg = "Apply";
+      var ref = new Firebase("https://gtu-autodesk.firebaseio.com/students");
+      $scope.students = $firebaseArray(ref);
+
+      $scope.addStudent = function () {
+          $scope.students.$add($scope.newStudent);
+      };
 
   }]);
 angular
@@ -369,6 +375,25 @@ angular
 
   }]);
 angular
+  .module('2DDrowingControllerModule', [])
+  .controller("2DDrowingController", ['$scope', '$rootScope', function ($scope, $rootScope) {
+
+      $scope.Model = $rootScope.Courses[0].Programs;
+
+  }]);
+angular
+  .module('2DDrowingConfigModule',
+  ['2DDrowingControllerModule'])
+  .config(function ($stateProvider, $urlRouterProvider) {
+	 $stateProvider
+	  .state('2DDrowing', {
+	      url: '/AutoCAD/2DDrowing',
+	    templateUrl: 'app/components/AutoCAD/2DDrowing/2DDrowing.html',
+	    controller: '2DDrowingController'
+	  })
+});
+
+angular
   .module('2DModellingVisualisationControllerModule', [])
   .controller("2DModellingVisualisationController", ['$scope', '$rootScope', function ($scope, $rootScope) {
 
@@ -406,25 +431,6 @@ angular
       $scope.Model = $rootScope.Courses[0].Programs;
 
   }]);
-angular
-  .module('2DDrowingControllerModule', [])
-  .controller("2DDrowingController", ['$scope', '$rootScope', function ($scope, $rootScope) {
-
-      $scope.Model = $rootScope.Courses[0].Programs;
-
-  }]);
-angular
-  .module('2DDrowingConfigModule',
-  ['2DDrowingControllerModule'])
-  .config(function ($stateProvider, $urlRouterProvider) {
-	 $stateProvider
-	  .state('2DDrowing', {
-	      url: '/AutoCAD/2DDrowing',
-	    templateUrl: 'app/components/AutoCAD/2DDrowing/2DDrowing.html',
-	    controller: '2DDrowingController'
-	  })
-});
-
 angular
   .module('3DProjectingControllerModule', [])
   .controller("3DProjectingController", ['$scope', '$rootScope', function ($scope, $rootScope) {
