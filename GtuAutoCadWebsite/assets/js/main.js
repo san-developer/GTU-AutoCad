@@ -22,7 +22,8 @@ angular
 '2DModellingVisualisationConfigModule',
 'CADConfigModule',
 'ProjectBuildingConfigModule',
-'3DProjectingConfigModule', ]).config(function ($stateProvider, $urlRouterProvider) {
+'3DProjectingConfigModule', 
+'InfrastructureProjectingConfigModule', ]).config(function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise("/");
 }).run(function ($rootScope) {
 
@@ -96,7 +97,7 @@ angular
                 Module: "AutoCADCivil3D",
                 Description: 'AutoCAD Civil 3D აღწერა.',
                 ProgramCount: 1,
-                Programs: [{ Id: 13, Name: "Autodesk AutoCAD Civil 3D. ინფრასტრუქტურის ობიექტების დაპროექტება", Description: "აღწერა" }]
+                Programs: [{ Id: 13, Name: "Autodesk AutoCAD Civil 3D. ინფრასტრუქტურის ობიექტების დაპროექტება", Description: "აღწერა", Module: "InfrastructureProjecting" }]
             }
         ];
 
@@ -105,6 +106,25 @@ angular
     });
 });
 
+angular
+  .module('AutoCADCivil3DConfigModule',
+  ['AutoCADCivil3DControllerModule'])
+  .config(function ($stateProvider, $urlRouterProvider) {
+	 $stateProvider
+	  .state('AutoCADCivil3D', {
+	      url: '/AutoCADCivil3D',
+	    templateUrl: 'app/components/AutoCADCivil3D/AutoCADCivil3D.html',
+	    controller: 'AutoCADCivil3DController'
+	  })
+});
+
+angular
+  .module('AutoCADCivil3DControllerModule', [])
+  .controller("AutoCADCivil3DController",  ['$scope', function($scope) {
+
+    $scope.msg = "AutoCADCivil3D";
+
+  }]);
 angular
   .module('3dsMaxControllerModule', [])
   .controller("3dsMaxController", ['$scope', '$rootScope', function ($scope, $rootScope) {
@@ -429,6 +449,25 @@ angular
   .controller("CADController", ['$scope', '$rootScope', function ($scope, $rootScope) {
 
       $scope.Model = $rootScope.Courses[0].Programs;
+
+  }]);
+angular
+  .module('InfrastructureProjectingConfigModule',
+  ['InfrastructureProjectingControllerModule'])
+  .config(function ($stateProvider, $urlRouterProvider) {
+	 $stateProvider
+	  .state('InfrastructureProjecting', {
+	      url: '/AutoCADCivil3D/InfrastructureProjecting',
+	    templateUrl: 'app/components/AutoCADCivil3D/InfrastructureProjecting/InfrastructureProjecting.html',
+	    controller: 'InfrastructureProjectingController'
+	  })
+});
+
+angular
+  .module('InfrastructureProjectingControllerModule', [])
+  .controller("InfrastructureProjectingController", ['$scope', '$rootScope', function ($scope, $rootScope) {
+
+      $scope.Model = $rootScope.Courses[7].Programs;
 
   }]);
 angular

@@ -22,7 +22,8 @@ angular
 '2DModellingVisualisationConfigModule',
 'CADConfigModule',
 'ProjectBuildingConfigModule',
-'3DProjectingConfigModule', ]).config(function ($stateProvider, $urlRouterProvider) {
+'3DProjectingConfigModule', 
+'InfrastructureProjectingConfigModule', ]).config(function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise("/");
 }).run(function ($rootScope) {
 
@@ -96,7 +97,7 @@ angular
                 Module: "AutoCADCivil3D",
                 Description: 'AutoCAD Civil 3D აღწერა.',
                 ProgramCount: 1,
-                Programs: [{ Id: 13, Name: "Autodesk AutoCAD Civil 3D. ინფრასტრუქტურის ობიექტების დაპროექტება", Description: "აღწერა" }]
+                Programs: [{ Id: 13, Name: "Autodesk AutoCAD Civil 3D. ინფრასტრუქტურის ობიექტების დაპროექტება", Description: "აღწერა", Module: "InfrastructureProjecting" }]
             }
         ];
 
