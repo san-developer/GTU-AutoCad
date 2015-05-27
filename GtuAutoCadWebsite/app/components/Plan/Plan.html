@@ -1,5 +1,4 @@
 ﻿<div class="container">
-
     <div class="row">
         <h1 class="span12">რომელი პროგრამა გჭირდებათ?</h1>
         <div class="span12">
@@ -9,9 +8,8 @@
             </ul>
         </div>
         <!-- =========================Start Col left section ============================= -->
-       
-        <div ng-include="'app/shared/_left_section.html'"></div>
 
+        <div ng-include="'app/shared/_left_section.html'"></div>
         <!-- =========================Start Col right section ============================= -->
         <section class="span8 ">
             <div class="col-right">
@@ -19,27 +17,232 @@
                     რომელი პროგრამა გჭირდებათ?
                 </p>
                 <hr>
-                <!--<h4>რომელი პროგრამა გჭირდებათ? </h4>-->
-                გარკვევეა ადვილია თქვენი სამუშაოს შედეგის მიხედვით:
-                <br />
-                <br />
-                1.თუ თქვენი სამუშაოს შედეგი უნდა იყოს ნახაზი, მაგალითად ბინის, სახლის, ნაკვეთის გეგმა მაშინ თქვენ  AutoCAD-ი გესაჭიროებათ .
-                ინტერიერის, ავეჯის, ლანდშაფტის დიზაინერები ვერ იმუშავებენ    AutoCAD-ის  გარეშე.
-                <br />
-                2.თუ თქვენ გესაჭიროებათ ვიზუალიზაცია ( ლამაზი სურათები, მაგალითად ინტერიერის დიზაინის წარსადგენათ, არქიტექტურული პროექტების (არქიტექტურული ვიზუალიზაცია), ლანდშაფტური დიზაინის ან სხვა დაპროექტების ობიექტებისათვის), მაშინ თქვენი პაკეტია 3ds Max.
-                <br />
-                3.თუ თქვენ გესაჭიროებათ ანიმაცია, მაგალითად სარეკლამო რგოლების, პრეზენტაციების და მულტფილმების შესაქმნელად, მაშინ თქვენ გჭირდებათ ან 3ds Max, ან Maya.
-                კონკრეტული პაკეტის არჩევანი დამოკიდებულია იმ კომპანიის ჩამოყალიბებულ სამუშაო პროცესზე, სადაც თქვენ აპირებთ მუშაობას. თუ ჯერ არ იცით,  სად აპირებთ მუშაობას, ან ანიმაციების კეთებას ჰობის სახით აპირებთ, მაშინ უკეთესია 3ds Max -ით დაიწყოთ, ვინაიდან დამწყებისათვის ამ პაკეტს აქვს უფრო მეგობრული ინტერფეისი. პროფესიონალები ფლობენ და იყენებენ ორივე პაკეტს.
-                <br />
-                4. თუ თქვენ გსურთ პაკეტების შესწავლა იმისათვის, რომ რაც შეიძლება მალე მოეწყოთ სამსახურში, მაშინ უმჯობესია Autodesk-ის პროდუქტები: AutoCAD, 3ds Max, Maya. მათი ცოდნის შემთხვევაში თქვენ უფრო სწრაფად იშოვით სამსახურს 3D- ინდუსტრიაში.
-                <br />
-                5. თუ თქვენ მუშაობთ  არქიტექტურის მიმართულებით მაშინ გამოიყენეთ ტექნოლოგიის და მწვანე მშენებლობის პრინციპით მომუშავე    REVIT
-                <br />
-                6. თუ თქვენ მუშაობთ მანქანათმშენებლობაში მაშინ თქვენი პროგრამაა  Inventor
-                <br />
-                7. თუ თქვენ აპროექტებთ ინფრასტრუქტურას- თქვენი პროგრამაა   Civil 3D
+         <h4>Autodesk-ის საგანმანათლებლო ცენტრი მსმენელების მოთხოვნილების მიხედვით გაზრდის შესასწავლი პროგრამების ნუსხას .</h4>
+                <table class="table table-bordered table-striped">
+
+                    <thead>
+                        <tr>
+                            <th>კატეგორიები</th>
+                            <th>Autodesk-ის პროდუქტები</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td colspan="2" style=" text-align: center;">
+                                <b>მიმართულება №1 "მანქანათმშენებლობა და სამრეწველო წარმოება"</b>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> კატეგორია 1.1: ნაკეთობის 2D-ნახაზი, ელექტროსქემა </td>
+                            <td style="width:300px;">
+                                <ul>
+                                    <li><a ui-sref="AutoCAD"> AutoCAD</a></li>
+                                    <li>AutoCAD Mechanical</li>
+                                    <li>AutoCAD Electrical</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                კატეგორია 1.2:  ნაკეთობის 3D-მოდელი
+                            </td>
+                            <td>
+                                <ul>
+                                    <li><a ui-sref="AutoCAD"> AutoCAD</a></li>
+                                    <li><a ui-sref="Inventor"> Autodesk Inventor </a></li>
+                                    <li>
+                                        Autodesk Fusion 360
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                კატეგორია  1.3: საინჟინრო ანალიზი და გათვლები
+                            </td>
+                            <td>
+                                <ul>
+                                    <li><a ui-sref="Inventor"> Autodesk Inventor Professional </a></li>
+                                    <li>Autodesk Sim 360</li>
+                                    <li>Autodesk Moldflow</li>
+                                    <li>Autodesk Simulation Mechanical</li>
+                                    <li>Autodesk Simulation CFD</li>
+                                    <li>Autodesk Simulation Composite</li>
+                                    <li>Autodesk Simulation DFM</li>
+                                    <li>Autodesk ForceEffect</li>
+                                    <li>Autodesk ForceEffect Motion</li>
+                                    <li>
+                                        Autodesk Force Effect Flow
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td> კატეგორია  1.4: სამრეწველო დიზაინი</td>
+                            <td>
+                                <ul>
+
+                                    <li>Autodesk Alias Design</li>
+                                    <li>Autodesk    Alias Surface</li>
+                                    <li>Autodesk    Alias Automotive</li>
+                                    <li>Autodesk     Fusion 360</li>
+                                    <li>Autodesk    Maya</li>
+                                    <li>
+                                        Autodesk    3ds Max
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" style="text-align:center">
+                                <b>მიმართულება №2 «არქიტექტურა,მშენებლობა,სამშენებლო ინფრასტრუქტურის ობიექტები»</b>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                კატეგორია  2.1: საცხოვრებელი შენობების არქიტექტურა
+
+                                კატეგორია  2.2: საზოგადოებრივი და სამრეწველო შენობების და ნაგებობების არქიტექტურა
+
+                            </td>
+                            <td>
+                                <ul>
+                                    <li>
+                                        <a ui-sref="Revit"> Autodesk Revit </a>
+                                    </li>
+                                    <li>
+                                        AutoCAD Architecture
+                                    </li>
+                                    <li>
+                                        <a ui-sref="AutoCAD"> AutoCAD </a>
+                                    </li>
+                                </ul>
+                            </td>
+
+                        <tr>
+                            <td>
+                                კატეგორია 2.3: სატრანსპორტო ნაგებობები (გზები, ხიდები, გვირაბები, სარკინიგზო გზები და სხვა ხაზოვანი ობიექტები)
+                            </td>
+                            <td>
+                                <ul>
+                                    <li> <a ui-sref="AutoCADCivil3D"> AutoCAD Civil 3D </a></li>
+                                    <li>InfraWorks</li>
+                                    <li><a ui-sref="AutoCAD"> AutoCAD </a></li>
+                                </ul>
+                            </td>
+                        <tr>
+                            <td>
+                                კატეგორია  2.4: გარე საინჟინრო კომუნიკაციები, მილსადენები
+                            </td>
+                            <td>
+                                <ul>
+                                    <li>AutoCAD Plant 3D</li>
+                                    <li>AutoCAD P&ID</li>
+                                    <li> <a ui-sref="AutoCADCivil3D"> AutoCAD Civil 3D </a></li>
+                                    <li><a ui-sref="AutoCAD"> AutoCAD </a></li>
+                                </ul>
+                            </td>
+                        <tr>
+                            <td>
+                                კატეგორია  2.5:
+                                GIS-გეოინფორმაციული სისტემები, კარტოგრაფია, ტერიტორიების დაგეგემარება
+                            </td>
+                            <td>
+                                <ul>
+                                    <li>AutoCAD  Map 3D</li>
+                                    <li>InfraWorks</li>
+                                </ul>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td colspan="2" style="text-align:center;">
+                                <b>  მიმართულება №3 «გრაფიკა და ანიმაცია»</b>
+                            </td>
+                        </tr>
 
 
+                        <tr>
+                            <td>
+                                კატეგორია  3.1: 2D გრაფიკა, სკეტჩები, ესკიზები, ტანსაცმლის დიზაინი
+                            </td>
+                            <td>Autodesk  Sketchbook</td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                კატეგორია  3.2: ინტერიერის და გარემოს ვიზუალიზაცია
+                                კატეგორია  3.3: ფიზიკური, ტექნოლოგიური, სამრეწველო წარმოების, არქიტექტურის და მშენებლობის პროცესების და ობიექტების  ანიმაცია
+                                კატეგორია  3.4: კომპიუტერული მულტიპლიკაცია, ანიმაცია კინოფილმებისათვის, ტელევიზიისათვის და კომპიუტერული თამაშებისათვის
+                            </td>
+                            <td>
+                                <ul>
+                                    <li>Autodesk  3ds Max</li>
+                                    <li>Autodesk  Maya</li>
+                                    <li>Autodesk  MotionBuilder</li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                კატეგორია  3.5: 3D-სკულპტურა, პერსონაჟები კომპიუტერული თამაშებისა და კინოფილმებისათვის
+                            </td>
+                            <td>
+                                <ul>
+                                    <li>Autodesk  Mudbox</li>
+                                    <li>Autodesk  Softimage</li>
+                                </ul>
+                            </td>
+
+                        </tr>
+
+                        <tr>
+                            <td colspan="2" style="text-align:center">
+                                <b>მიმართულება №4 «ეკოლოგიურად რაციონალური დაპროექტება»</b>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                კატეგორია  4.1: ეკოლოგიურად რაციონალური დაპროექტება მანქანათმშენებლობაში
+                            </td>
+                            <td>
+                                <ul>
+                                    <li><a ui-sref="Inventor"> Autodesk Inventor </a></li>
+                                    <li>Autodesk Moldflow</li>
+                                    <li>Autodesk Simulation Mechanical</li>
+                                    <li>Autodesk Simulation CFD</li>
+                                    <li>Autodesk Simulation Moldflow</li>
+                                    <li>Autodesk Simulation Composite</li>
+                                    <li>Autodesk ForceEffect</li>
+                                    <li>
+                                        Autodesk ForceEffect Motion
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                კატეგორია  4.2: ენერგოეფექტური შენობები
+                            </td>
+                            <td>
+                                <ul>
+                                    <li><a ui-sref="Revit"> Autodesk Revit </a></li>
+                                    <li>Autodesk Ecotect Analysis</li>
+                                    <li>
+                                        Autodesk  Robot  Structural Analysis
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
             </div><!-- end col right-->
         </section>
     </div><!-- end row-->

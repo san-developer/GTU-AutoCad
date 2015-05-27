@@ -8,25 +8,22 @@ angular
     'TeachersConfigModule',
     'AboutConfigModule',
     'AllCoursesConfigModule',
-'PlanConfigModule',
-'AutoCADConfigModule',
-'AutoCADMEPConfigModule',
-'RevitArchitectureConfigModule',
-'3dsMaxConfigModule',
-'InventorConfigModule',
-'AutodeskSketchbookPROConfigModule',
-'MayaConfigModule',
-'AutoCADCivil3DConfigModule',
-'ApplyConfigModule',
-'2DDrowingConfigModule',
-'2DModellingVisualisationConfigModule',
-'CADConfigModule',
-'ProjectBuildingConfigModule',
-'3DProjectingConfigModule', 
-'InfrastructureProjectingConfigModule', ]).config(function ($stateProvider, $urlRouterProvider) {
+    'PlanConfigModule',
+    'AutoCADConfigModule',
+    'RevitArchitectureConfigModule',
+    '3dsMaxConfigModule',
+    'InventorConfigModule',
+    'AutodeskSketchbookPROConfigModule',
+    'AutoCADCivil3DConfigModule',
+    'ApplyConfigModule',
+    '2DDrowingConfigModule',
+    '2DModellingVisualisationConfigModule',
+    'CADConfigModule',
+    'ProjectBuildingConfigModule',
+    '3DProjectingConfigModule',
+    'InfrastructureProjectingConfigModule', ]).config(function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise("/");
 }).run(function ($rootScope) {
-
     $rootScope.Courses =
         [
             {
@@ -41,63 +38,45 @@ angular
             },
             {
                 Id: 2,
-                Name: 'AutoCAD MEP',
-                Module: "AutoCADMEP",
-                Description: 'AutoCAD MEP აღწერა.',
-                ProgramCount: 2,
-                Programs: [{ Id: 4, Name: "Autodesk AutoCAD MEP.  შენობების საინჟინრო სისტემების დაპროექტება", Description: "აღწერა", Module: "" },
-                           { Id: 5, Name: "Autodesk Revit MEP. შენობების საინჟინრო სისტემების დაპროექტება", Description: "აღწერა", Module: "" }]
-            },
-            {
-                Id: 3,
                 Name: 'Revit Architecture',
                 Module: "RevitArchitecture",
                 Description: 'Revit Architecture აღწერა',
                 ProgramCount: 1,
-                Programs: [{ Id: 6, Name: "Autodesk Revit Architecture. სამშენებლო ობიექტების დაპროექტება", Description: "აღწერა", Module: "ProjectBuilding" }]
+                Programs: [{ Id: 4, Name: "Autodesk Revit Architecture. სამშენებლო ობიექტების დაპროექტება", Description: "აღწერა", Module: "ProjectBuilding" }]
             },
             {
-                Id: 4,
+                Id: 3,
                 Name: '3ds Max',
                 Module: "3dsMax",
                 Description: '3ds Max აღწერა.',
                 ProgramCount: 2,
-                Programs: [{ Id: 7, Name: "Autodesk 3ds Max.  3D-მოდელირების საფუძვლები", Description: "აღწერა" },
-                           { Id: 8, Name: "Autodesk 3ds Max.  მასალების შექმნა და განათება ", Description: "აღწერა" }]
+                Programs: [{ Id: 5, Name: "Autodesk 3ds Max.  3D-მოდელირების საფუძვლები", Description: "აღწერა" },
+                           { Id: 6, Name: "Autodesk 3ds Max.  მასალების შექმნა და განათება ", Description: "აღწერა" }]
 
             },
             {
-                Id: 5,
+                Id: 4,
                 Name: 'Inventor',
                 Module: "Inventor",
                 Description: 'Inventor აღწერა.',
                 ProgramCount: 1,
-                Programs: [{ Id: 9, Name: "Autodesk Inventor. სამანქანათმშენებლო 3D - დაპროექტება", Description: "აღწერა", Module: "3DProjecting" }]
+                Programs: [{ Id: 7, Name: "Autodesk Inventor. სამანქანათმშენებლო 3D - დაპროექტება", Description: "აღწერა", Module: "3DProjecting" }]
             },
             {
-                Id: 6,
+                Id: 5,
                 Name: 'Autodesk Sketchbook PRO',
                 Module: "AutodeskSketchbookPRO",
                 Description: 'Autodesk Sketchbook PRO აღწერა.',
                 ProgramCount: 1,
-                Programs: [{ Id: 10, Name: "Autodesk Sketchbook PRO. სკეტჩინგი IPad - ზე", Description: "აღწერა" }]
+                Programs: [{ Id: 8, Name: "Autodesk Sketchbook PRO. სკეტჩინგი IPad - ზე", Description: "აღწერა" }]
             },
             {
-                Id: 7,
-                Name: 'Maya',
-                Module: "Maya",
-                Description: 'Maya აღწერა.',
-                ProgramCount: 2,
-                Programs: [{ Id: 11, Name: "Autodesk Maya.   მოდელირება და ანიმაცია", Description: "აღწერა" },
-                           { Id: 12, Name: "Autodesk Maya. ობიექტქბის ვიზუალიზაცია Mental ray-ში", Description: "აღწერა" }]
-            },
-            {
-                Id: 8,
+                Id: 6,
                 Name: 'AutoCAD Civil 3D',
                 Module: "AutoCADCivil3D",
                 Description: 'AutoCAD Civil 3D აღწერა.',
                 ProgramCount: 1,
-                Programs: [{ Id: 13, Name: "Autodesk AutoCAD Civil 3D. ინფრასტრუქტურის ობიექტების დაპროექტება", Description: "აღწერა", Module: "InfrastructureProjecting" }]
+                Programs: [{ Id: 9, Name: "Autodesk AutoCAD Civil 3D. ინფრასტრუქტურის ობიექტების დაპროექტება", Description: "აღწერა", Module: "InfrastructureProjecting" }]
             }
         ];
 
@@ -129,7 +108,7 @@ angular
   .module('3dsMaxControllerModule', [])
   .controller("3dsMaxController", ['$scope', '$rootScope', function ($scope, $rootScope) {
 
-      $scope.Model = $rootScope.Courses[3];
+      $scope.Model = $rootScope.Courses[2];
 
   }]);
 angular
@@ -144,25 +123,6 @@ angular
 	  })
 });
 
-angular
-  .module('AboutConfigModule',
-  ['AboutControllerModule'])
-  .config(function ($stateProvider, $urlRouterProvider) {
-	 $stateProvider
-	  .state('About', {
-	    url : '/About',
-	    templateUrl: 'app/components/About/About.html',
-	    controller: 'AboutController'
-	  })
-});
-
-angular
-  .module('AboutControllerModule', [])
-  .controller("AboutController",  ['$scope', function($scope) {
-
-    $scope.msg = "About";
-
-  }]);
 angular
   .module('AllCoursesConfigModule',
   ['AllCoursesControllerModule'])
@@ -226,6 +186,25 @@ angular
 
   }]);
 angular
+  .module('AboutConfigModule',
+  ['AboutControllerModule'])
+  .config(function ($stateProvider, $urlRouterProvider) {
+	 $stateProvider
+	  .state('About', {
+	    url : '/About',
+	    templateUrl: 'app/components/About/About.html',
+	    controller: 'AboutController'
+	  })
+});
+
+angular
+  .module('AboutControllerModule', [])
+  .controller("AboutController",  ['$scope', function($scope) {
+
+    $scope.msg = "About";
+
+  }]);
+angular
   .module('AutoCADCivil3DConfigModule',
   ['AutoCADCivil3DControllerModule'])
   .config(function ($stateProvider, $urlRouterProvider) {
@@ -241,26 +220,7 @@ angular
   .module('AutoCADCivil3DControllerModule', [])
   .controller("AutoCADCivil3DController", ['$scope', '$rootScope', function ($scope, $rootScope) {
 
-      $scope.Model = $rootScope.Courses[7];
-
-  }]);
-angular
-  .module('AutoCADMEPConfigModule',
-  ['AutoCADMEPControllerModule'])
-  .config(function ($stateProvider, $urlRouterProvider) {
-	 $stateProvider
-	  .state('AutoCADMEP', {
-	    url : '/AutoCADMEP',
-	    templateUrl: 'app/components/AutoCADMEP/AutoCADMEP.html',
-	    controller: 'AutoCADMEPController'
-	  })
-});
-
-angular
-  .module('AutoCADMEPControllerModule', [])
-  .controller("AutoCADMEPController", ['$scope', '$rootScope', function ($scope, $rootScope) {
-
-      $scope.Model = $rootScope.Courses[1];
+      $scope.Model = $rootScope.Courses[5];
 
   }]);
 angular
@@ -279,24 +239,7 @@ angular
   .module('AutodeskSketchbookPROControllerModule', [])
   .controller("AutodeskSketchbookPROController", ['$scope', '$rootScope', function ($scope, $rootScope) {
 
-      $scope.Model = $rootScope.Courses[5];
-
-  }]);
-angular
-  .module('HomeConfigModule',
-  ['HomeControllerModule'])
-  .config(function ($stateProvider, $urlRouterProvider) {
-  $stateProvider
-  .state('Home', {
-    url : '/',
-    templateUrl: 'app/components/Home/Home.html',
-    controller: 'HomeController'
-  })
-});
-
-angular
-  .module('HomeControllerModule', [])
-  .controller("HomeController", ['$scope', function ($scope) {
+      $scope.Model = $rootScope.Courses[4];
 
   }]);
 angular
@@ -315,26 +258,24 @@ angular
   .module('InventorControllerModule', [])
   .controller("InventorController", ['$scope', '$rootScope', function ($scope, $rootScope) {
 
-      $scope.Model = $rootScope.Courses[4];
+      $scope.Model = $rootScope.Courses[3];
 
   }]);
 angular
-  .module('MayaConfigModule',
-  ['MayaControllerModule'])
+  .module('HomeConfigModule',
+  ['HomeControllerModule'])
   .config(function ($stateProvider, $urlRouterProvider) {
-	 $stateProvider
-	  .state('Maya', {
-	    url : '/Maya',
-	    templateUrl: 'app/components/Maya/Maya.html',
-	    controller: 'MayaController'
-	  })
+  $stateProvider
+  .state('Home', {
+    url : '/',
+    templateUrl: 'app/components/Home/Home.html',
+    controller: 'HomeController'
+  })
 });
 
 angular
-  .module('MayaControllerModule', [])
-  .controller("MayaController", ['$scope', '$rootScope', function ($scope, $rootScope) {
-
-      $scope.Model = $rootScope.Courses[6];
+  .module('HomeControllerModule', [])
+  .controller("HomeController", ['$scope', function ($scope) {
 
   }]);
 angular
@@ -357,25 +298,6 @@ angular
 
   }]);
 angular
-  .module('RevitArchitectureConfigModule',
-  ['RevitArchitectureControllerModule'])
-  .config(function ($stateProvider, $urlRouterProvider) {
-	 $stateProvider
-	  .state('RevitArchitecture', {
-	    url : '/RevitArchitecture',
-	    templateUrl: 'app/components/RevitArchitecture/RevitArchitecture.html',
-	    controller: 'RevitArchitectureController'
-	  })
-});
-
-angular
-  .module('RevitArchitectureControllerModule', [])
-  .controller("RevitArchitectureController", ['$scope', '$rootScope', function ($scope, $rootScope) {
-
-      $scope.Model = $rootScope.Courses[2];
-
-  }]);
-angular
   .module('TeachersConfigModule',
   ['TeachersControllerModule'])
   .config(function ($stateProvider, $urlRouterProvider) {
@@ -392,6 +314,25 @@ angular
   .controller("TeachersController",  ['$scope', function($scope) {
 
     $scope.msg = "Teachers";
+
+  }]);
+angular
+  .module('RevitArchitectureConfigModule',
+  ['RevitArchitectureControllerModule'])
+  .config(function ($stateProvider, $urlRouterProvider) {
+	 $stateProvider
+	  .state('RevitArchitecture', {
+	    url : '/RevitArchitecture',
+	    templateUrl: 'app/components/RevitArchitecture/RevitArchitecture.html',
+	    controller: 'RevitArchitectureController'
+	  })
+});
+
+angular
+  .module('RevitArchitectureControllerModule', [])
+  .controller("RevitArchitectureController", ['$scope', '$rootScope', function ($scope, $rootScope) {
+
+      $scope.Model = $rootScope.Courses[1];
 
   }]);
 angular
@@ -467,14 +408,14 @@ angular
   .module('InfrastructureProjectingControllerModule', [])
   .controller("InfrastructureProjectingController", ['$scope', '$rootScope', function ($scope, $rootScope) {
 
-      $scope.Model = $rootScope.Courses[7].Programs;
+      $scope.Model = $rootScope.Courses[5].Programs;
 
   }]);
 angular
   .module('3DProjectingControllerModule', [])
   .controller("3DProjectingController", ['$scope', '$rootScope', function ($scope, $rootScope) {
 
-      $scope.Model = $rootScope.Courses[4].Programs;
+      $scope.Model = $rootScope.Courses[3].Programs;
 
   }]);
 angular
@@ -505,6 +446,6 @@ angular
   .module('ProjectBuildingControllerModule', [])
   .controller("ProjectBuildingController", ['$scope', '$rootScope', function ($scope, $rootScope) {
 
-      $scope.Model = $rootScope.Courses[2].Programs;
+      $scope.Model = $rootScope.Courses[1].Programs;
 
   }]);

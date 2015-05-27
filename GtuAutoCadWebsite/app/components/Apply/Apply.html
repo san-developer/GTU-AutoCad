@@ -13,9 +13,7 @@
         <section class="span8 ">
             <div class="col-right">
                 <p class="lead">
-                    აღწერა
-                    <br />
-                დარეგისტრირებული სტუდენტების რაოდენობა {{students.length}}
+                  
                 </p>
                 <hr>
                 <div id="message-contact"></div>
@@ -45,7 +43,7 @@
                 <div class="row">
                     <div class="span3">
                         <label>აირჩიეთ კურსი <span class="required">* </span></label>
-                        <select ng-model="newStudent.course" class="span3">
+                        <select ng-model="newStudent.course" class="span6" style="height:35px;">
                             <optgroup label="{{course.Name}}" ng-repeat="course in Courses">
                                 <option ng-repeat="program in course.Programs" value="{{program.Id}}"> {{program.Name}}</option>
                             </optgroup>
